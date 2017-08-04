@@ -1,0 +1,99 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+class Hourglass
+{
+public:
+  Hourglass(int[]);
+  int getSum();
+
+private:
+  int[] values;
+
+} 
+
+Hourglass::Hourflass(int[] hourglass):values(hourglass){}
+
+int Hourglass::getSum()
+{
+  int sum;
+  for(int i=0; i < values.length; i++)
+    {
+      sum+= values[i];
+    }
+  return sum;
+}
+
+Hourglass getHourglass(int[] anArray)
+{
+  return new Hourglass(anArray);
+}
+
+int getHourGlassSum(Hourglass hourglass)
+{
+  
+}
+
+int main(){
+    vector< vector<int> > arr(6,vector<int>(6));
+    for(int arr_i = 0;arr_i < 6;arr_i++){
+       for(int arr_j = 0;arr_j < 6;arr_j++){
+          cin >> arr[arr_i][arr_j];
+       }
+    }
+
+  int maxValue = 0;
+  int columnStart = 0;
+  final int COLUMN_START_MAX = 4;
+  final int ROW_MAX = 4;
+  //check all 18 hourglasses
+  for(int i = 0; i < 16; i++)
+    {
+    int[] values;
+      for(int j = 0; j < COLUMN_START_MAX; j++)
+      {
+        for(int k = 0; k < ROW_MAX; k++)
+        {
+        int sum;
+        
+        sum += arr.at(k).at(j);
+        sum += arr.at(k).at(j+1);
+        sum += arr.at(k).at(j+2);
+        sum += arr.at(k+1).at(j+1);
+        sum += arr.at(k+2).at(j);
+        sum += arr.at(k+2).at(j+1);
+        sum += arr.at(k+2).at(j+2);
+           
+        if(sum > maxValue)
+        {
+          maxValue = sum;
+        }
+           
+        }
+      }
+    }
+  cout << maxValue << endl;
+    return 0;
+}
